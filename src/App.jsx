@@ -1,11 +1,13 @@
 import styled from "@emotion/styled";
 import { Provider } from "react-redux";
 import { Route, Routes } from "react-router-dom";
+import { PersistGate } from "redux-persist/integration/react";
+import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
 import Navigation from "./components/Navigation/Navigation";
 import AllLocation from "./pages/AllLocation/AllLocation";
 import Favorite from "./pages/Favorite/Favorite";
 import MyLocation from "./pages/MyLocation/MyLocation";
-import { store } from "./store";
+import { persistor, store } from "./store";
 
 const Container = styled.div`
   width: 720px;
@@ -33,20 +35,40 @@ const Wrapper = styled.div`
   overflow-y: auto;
 `;
 
+export const HeaderContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #efefef;
+  border-bottom: 1px solid #ddd;
+  min-width: 500px;
+  border-radius: 10px 10px 0 0;
+`;
+
 function App() {
   return (
     <Provider store={store}>
-      <Container>
-        <Wrapper>
-          <Routes>
-            <Route path="/" element={<MyLocation />} />
-            <Route path="/myLocation" element={<MyLocation />} />
-            <Route path="/allLocation" element={<AllLocation />} />
-            <Route path="/favorite" element={<Favorite />} />
-          </Routes>
-        </Wrapper>
-        <Navigation />
-      </Container>
+      <PersistGate persistor={persistor}>
+        <Container>
+          <Wrapper>
+            <HeaderContainer>
+              <DropdownMenu />
+            </HeaderContainer>
+            <Routes>
+              <Route path="/" element={<MyLocation />} />
+              <Route path="/myLocation" element={<MyLocation />} />
+              <Route path="/allLocation" element={<AllLocation />} />
+              <Route path="/favorite" element={<Favorite />} />
+            </Routes>
+          </Wrapper>
+          <Navigation />
+        </Container>
+      </PersistGate>
     </Provider>
   );
 }
