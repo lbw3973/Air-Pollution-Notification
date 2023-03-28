@@ -11,7 +11,9 @@ export const getParameters = {
 
 export const fetchData = async (param) => {
   const response = await axios.get(
-    "/api/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty",
+    `${
+      import.meta.env.VITE_API_DOMAIN
+    }/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty`,
     { params: param }
   );
   return response.data.response.body.items;
