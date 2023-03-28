@@ -14,8 +14,3 @@ export const HeaderContainer = styled.div`
   min-width: 500px;
   border-radius: 10px 10px 0 0;
 `;
-
-export const Title = styled.div`
-  font-size: 24px;
-  font-weight: bold;
-`;
