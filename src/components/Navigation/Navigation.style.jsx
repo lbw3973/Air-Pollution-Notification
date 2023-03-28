@@ -13,13 +13,17 @@ export const Container = styled.div`
 `;
 
 export const BtnNav = styled.button`
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid #ddd;
-  padding-top: 10px;
+  padding: 10px;
   border-radius: ${(props) => setRadius(props.radius)};
+  &:hover {
+    background-color: #dadada;
+  }
 `;
 
 const setRadius = (radius) => {
