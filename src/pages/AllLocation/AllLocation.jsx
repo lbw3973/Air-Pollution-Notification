@@ -1,14 +1,26 @@
-import DropdownMenu from "../../components/DropdownMenu/DropdownMenu";
+import { useSelector } from "react-redux";
 import LocalInfo from "../../components/LocalInfo/LocalInfo";
-import * as S from "./AllLocation.style";
 
 const AllLocation = () => {
+  const cities = useSelector((state) => state.getPollutionReducer);
+
+  const favorites = useSelector((state) => state.getFavoriteDataReducer);
+  const favor_stationName = favorites.map((data) => data.stationName);
+
   return (
     <>
-      <S.HeaderContainer>
-        <DropdownMenu />
-      </S.HeaderContainer>
-      <LocalInfo />
+      {cities.data &&
+        cities.data.map((city) => (
+          <LocalInfo
+            key={city.stationName}
+            pm10Grade={city.pm10Grade}
+            sidoName={city.sidoName}
+            stationName={city.stationName}
+            pm10Value={city.pm10Value}
+            dataTime={city.dataTime}
+            favorited={favor_stationName.includes(city.stationName)}
+          />
+        ))}
     </>
   );
 };
