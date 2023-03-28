@@ -1,11 +1,12 @@
 import styled from "@emotion/styled";
 
 export const Conatianer = styled.div`
+  position: relative;
   width: 400px;
   height: 250px;
   border-radius: 10px;
   background-color: ${({ backgroundColor }) =>
-    getContainerColor(backgroundColor)};
+    getContainerColor(Number(backgroundColor))};
 `;
 
 export const DivLocation = styled.div`
@@ -27,8 +28,9 @@ export const DivStatus = styled.div`
 `;
 
 export const WrapperStatus = styled.div`
-  width: 40%;
-  height: 100%;
+  /* width: 40%; */
+  /* height: 100%; */
+  padding: 20px;
   background-color: #fff;
   border-radius: 10px;
   display: flex;
@@ -42,6 +44,17 @@ export const DivPmValue = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 10px 0;
+`;
+
+export const DivFavorite = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
 `;
 
 const getContainerColor = (grade) => {
