@@ -18,6 +18,7 @@ export const BtnNav = styled.button`
   flex-direction: column;
   align-items: center;
   border: 1px solid #ddd;
+  padding-top: 10px;
   border-radius: ${(props) => setRadius(props.radius)};
 `;
 
