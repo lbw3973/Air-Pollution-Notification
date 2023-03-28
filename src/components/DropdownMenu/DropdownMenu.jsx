@@ -1,17 +1,25 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getStationInfo } from "../../reducers/GetStationInfo";
+import { useLocation } from "react-router-dom";
+import { getPollutionData } from "../../reducers/getPollutionData";
+import { getStationData } from "../../reducers/getStationData";
 import * as S from "./DropdownMenu.style";
 
-const DropdownMenu = (props) => {
+const DropdownMenu = () => {
+  const { pathname } = useLocation();
   const CityDispatch = useDispatch();
-  const [selected, setSelected] = useState("서울");
-  const [station, setStation] = useState("");
+  const StationDispatch = useDispatch();
 
+  const [selected, setSelected] = useState("서울");
   useEffect(() => {
-    CityDispatch(getStationInfo(selected));
+    CityDispatch(getPollutionData(selected));
   }, [selected]);
-  const cities = useSelector((state) => state);
+  const cities = useSelector((state) => state.getPollutionReducer);
+
+  const [station, setStation] = useState("도봉구");
+  useEffect(() => {
+    StationDispatch(getStationData(station));
+  }, [station]);
 
   const sidoName = [
     "서울",
@@ -38,17 +46,17 @@ const DropdownMenu = (props) => {
   const handleStationSelect = (e) => {
     setStation(e.target.value);
   };
-
+  if (pathname === "/favorite") return <S.Title>즐겨찾기 목록</S.Title>;
   return (
     <S.Contaier>
-      <S.SelectCity onChange={handleCitySelect} value={selected}>
+      <S.SelectCity onChange={handleCitySelect} defaultValue={selected}>
         {sidoName.map((item) => (
           <option value={item} key={item}>
             {item}
           </option>
         ))}
       </S.SelectCity>
-      {props.myLocation && (
+      {pathname == "/myLocation" && (
         <S.SelectCity onChange={handleStationSelect} value={station}>
           {cities.data &&
             cities.data.map((city) => (
