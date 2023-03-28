@@ -60,7 +60,7 @@ function App() {
               <DropdownMenu />
             </HeaderContainer>
             <Routes>
-              <Route path="/" element={<MyLocation />} />
+              <Route path="/" element={<AllLocation />} />
               <Route path="/myLocation" element={<MyLocation />} />
               <Route path="/allLocation" element={<AllLocation />} />
               <Route path="/favorite" element={<Favorite />} />
