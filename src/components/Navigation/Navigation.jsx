@@ -7,7 +7,6 @@ import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const location = useLocation();
-  console.log(location.pathname);
 
   return (
     <S.Container>
