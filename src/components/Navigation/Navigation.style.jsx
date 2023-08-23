@@ -22,10 +22,10 @@ export const BtnNav = styled.button`
   border: 1px solid #fff;
   padding: 10px;
   border-radius: ${(props) => setRadius(props.radius)};
-  background-color: #bbdfff;
+  background-color: ${(props) => (props.selected ? "#4cacff" : "#bbdfff")};
   cursor: pointer;
   &:hover {
-    background-color: #7fc3ff;
+    background-color: #98cfff;
   }
 `;
 
