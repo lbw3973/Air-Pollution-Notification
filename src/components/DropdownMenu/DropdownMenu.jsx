@@ -11,12 +11,16 @@ const DropdownMenu = () => {
   const StationDispatch = useDispatch();
 
   const [selected, setSelected] = useState("서울");
-  useEffect(() => {
-    CityDispatch(getPollutionData(selected));
-  }, [selected]);
+  const [station, setStation] = useState("도봉구");
   const cities = useSelector((state) => state.getPollutionReducer);
 
-  const [station, setStation] = useState("도봉구");
+  useEffect(() => {
+    CityDispatch(getPollutionData(selected));
+    if (cities.data) {
+      setStation(cities.data[0].stationName);
+    }
+  }, [selected]);
+
   useEffect(() => {
     StationDispatch(getStationData(station));
   }, [station]);
@@ -46,7 +50,7 @@ const DropdownMenu = () => {
   const handleStationSelect = (e) => {
     setStation(e.target.value);
   };
-  if (pathname === "/favorite") return <S.Title>즐겨찾기 목록</S.Title>;
+  if (pathname === "/favorite") return <S.Title>나의 즐겨찾기</S.Title>;
   return (
     <S.Contaier>
       <S.SelectCity onChange={handleCitySelect} defaultValue={selected}>
