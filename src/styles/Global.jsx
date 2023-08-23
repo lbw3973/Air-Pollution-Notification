@@ -59,6 +59,7 @@ const reset = css`
   body {
     line-height: 1.43;
     color: #222;
+    background-color: #ffe9e9;
   }
   ol,
   ul {
