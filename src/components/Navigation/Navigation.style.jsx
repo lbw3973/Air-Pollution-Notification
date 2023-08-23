@@ -17,6 +17,7 @@ export const BtnNav = styled.button`
   height: 100%;
   display: flex;
   flex-direction: column;
+  font-weight: bold;
   align-items: center;
   border: 1px solid #fff;
   padding: 10px;
