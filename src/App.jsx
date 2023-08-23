@@ -33,6 +33,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 73vh;
   overflow-y: auto;
+  background-color: #e6ffe8;
 `;
 
 export const HeaderContainer = styled.div`
