@@ -11,6 +11,7 @@ export const SelectCity = styled.select`
   padding: 15px 10px;
   border-radius: 10px;
   font-weight: bold;
+  cursor: pointer;
 `;
 
 export const Title = styled.div`

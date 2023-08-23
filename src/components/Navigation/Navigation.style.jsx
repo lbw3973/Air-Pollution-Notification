@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const Container = styled.div`
   position: absolute;
-  bottom: 0;
+  bottom: 11px;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -18,11 +18,13 @@ export const BtnNav = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #ddd;
+  border: 1px solid #fff;
   padding: 10px;
   border-radius: ${(props) => setRadius(props.radius)};
+  background-color: #bbdfff;
+  cursor: pointer;
   &:hover {
-    background-color: #dadada;
+    background-color: #7fc3ff;
   }
 `;
 

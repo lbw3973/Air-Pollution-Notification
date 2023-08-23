@@ -19,7 +19,7 @@ const Container = styled.div`
   align-items: center;
   margin: 20px auto;
 
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 10px;
   position: relative;
 `;
@@ -31,7 +31,7 @@ const Wrapper = styled.div`
   padding: 30px 0;
   gap: 30px;
   width: 100%;
-  height: 74vh;
+  height: 73vh;
   overflow-y: auto;
 `;
 
@@ -44,7 +44,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #efefef;
+  background-color: #bbdfff;
   border-bottom: 1px solid #ddd;
   min-width: 500px;
   border-radius: 10px 10px 0 0;
