@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import LocalInfo from "../../components/LocalInfo/LocalInfo";
+import Loading from "../../components/Loading/Loading";
 
 const AllLocation = () => {
   const cities = useSelector((state) => state.getPollutionReducer);
@@ -7,6 +8,7 @@ const AllLocation = () => {
   const favorites = useSelector((state) => state.getFavoriteDataReducer);
   const favor_stationName = favorites.map((data) => data.stationName);
 
+  if (cities.loading) return <Loading />;
   return (
     <>
       {cities.data &&
